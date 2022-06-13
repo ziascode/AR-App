@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR App</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+</head>
+<style>
+    model-viewer{
+        width: 0%;
+        height: 5%;
+        position: relative;
+        margin-left:20% 0 0 0;
+        transform: translate(10vw);
+    }
+    model-viewer img{
+        width: 100px;
+        height: 50px;
+    }
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    width: 100px;
+    height: 50px;
+}
+
+    img {
+        width: 75vw;
+        padding: 20px 0 20px 0;
+    }
+    body{
+    margin: 0;
+    background: wheat;
+    }
+    .container{
+        margin: 20% 5% 5% 5%;
+        border-radius:2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+        min-height: 35vh;
+        box-shadow: 0 0 10px 0 rgba(40,42,47,0.1),-10px 10px 24px 10px rgba(40,42,47,0.05),-30px 40px 30px 0 rgba(40,42,47,0.1),-10px 10px 10px -5px rgba(40,42,47,0.1)
+    }
+    #ARbutton{
+        padding-left:0%;
+        padding-top:0%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: wheat;
+    }
+    main{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .nine h1 {
+  text-align:center; font-size:50px; text-transform:uppercase; color:#222; letter-spacing:1px;
+  font-family:"Playfair Display", serif; font-weight:400;
+}
+.nine h1 span {
+  margin-top: 5px;
+    font-size:15px; color:#444; word-spacing:1px; font-weight:normal; letter-spacing:2px;
+    text-transform: uppercase; font-family:"Raleway", sans-serif; font-weight:500;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.nine h1 span:after,.nine h1 span:before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+    height: 5px;
+  background-color:wheat;
+}
+h1, h2{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+h2{
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+hr{
+    width: 50%;
+    border: none;
+    height: 1px;;
+    color: rgb(82, 75, 75); /* old IE */
+    background-color:rgb(82, 75, 75); /* Modern Browsers */
+}
+.icon{
+    display: block;
+}
+.icon img{
+    width: 40px;
+}
+h2 img{
+    transform: translateY(25px);
+}
+.arbutton{
+    color: white;
+    background: white;
+}
+
+</style>
+<body>
+    <main>
+        <div class="nine">
+            <h1>Style Nine<span>Augmented Reality Catalogue</span></h1>
+          </div>
+          <div class="icon">
+          <h2>Tap <img src="/assets/icon.png" alt=""> to virtually ‘place’ an item in your space</h2>
+          <hr>
+        </div>
+
+        <div class="box">
+            <container class="container">
+                <img src="/assets/eames.png" alt="">
+            </container>
+                <div id="ARbutton">
+                    <h1>Herman Miller</h1>
+                    <model-viewer ar ar-modes="scene-viewer webxr" ios-src="/assets/eames.usdz"></model-viewer>
+                </div>
+        </div>
+        
+        <div class="box">
+            <container class="container">
+                <img src="/assets/plant.png" alt="">
+            </container>
+                <div id="ARbutton">
+                    <h1>Tropisk</h1>
+                    <model-viewer ar ar-modes="scene-viewer webxr" ios-src="/assets/plant.usdz"></model-viewer>
+                </div>
+        </div>
+        
+        <div class="box">
+            <container class="container">
+                <img src="/assets/lamp.png" alt="">
+            </container>
+                <div id="ARbutton">
+                    <h1>Lauters Floor Lamp</h1>
+                    <model-viewer ar ar-modes="scene-viewer webxr" ios-src="/assets/plant.usdz"></model-viewer>
+                </div>
+        </div>
+        <br>
+        <br>
+        <br><br><br><br>
+        
+        
+        <!-- <div class="box">
+            <container class="container">
+                <img src="https://res.cloudinary.com/dvhcociyf/image/upload/v1641772792/metas/rainy1_zpsylc.jpg" alt="">
+            </container>
+                <div id="ARbutton">
+                    <h1>Painting 1</h1>
+                    <model-viewer  ar ar-modes="scene-viewer webxr" ios-src="/assets/Terminal_Sofa_-_Couch.usdz"></model-viewer>
+                </div>
+        </div> -->
+
+       
+    </main>
+   
+    <script>
+        (() => {
+  const modelViewer = document.querySelector('#exposure-demo');
+  const time = performance.now();
+
+  const animate = (now) => {
+    modelViewer.exposure = oscillate(10, 27, 4000, now - time);
+    requestAnimationFrame(animate);
+  };
+
+  animate();
+})();
+
+    </script>
+</body>
+</html>
